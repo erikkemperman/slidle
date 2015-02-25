@@ -1,0 +1,48 @@
+
+.#{$slidle} {
+  
+  position: relative;
+  min-width: $slidle-min-width;
+  min-height: $slidle-min-height;
+  
+  p, h1, h2, h3, h3, h4, h5, h6 {
+    padding: 6px;
+    margin: 0;
+  }
+  
+  
+  .#{$canvas} {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    
+    .#{$frame} {
+      position: absolute;
+      top: $frame-margin;
+      right: $frame-margin;
+      bottom: $frame-margin;
+      left: $frame-margin;
+      box-sizing: border-box;
+      overflow-y: hidden;
+    }
+    
+    .#{$frame}.#{$left} {
+      text-align: left;
+    }
+    
+    .#{$frame}.#{$center} {
+      text-align: center;
+    }
+    
+    .#{$frame}.#{$right} {
+      text-align: right;
+    }
+    
+    .#{$frame}.#{$justify} {
+      text-align: justify;
+    }
+  }
+  
+}
+

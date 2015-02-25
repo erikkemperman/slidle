@@ -1,0 +1,21 @@
+/* TODO I had hoped page-break-before would work, but it does not... */
+@media print {
+
+.#{$slidle} {
+  
+  .#{$canvas} {
+    
+    .#{$frame} {
+      page-break-before: always;
+    }
+    
+    
+  }
+  
+  .#{$control} {
+    display: none;
+  }
+  
+}
+
+}

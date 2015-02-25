@@ -1,0 +1,190 @@
+
+@media screen {
+
+.#{$slidle} {
+  
+  a {
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  .#{$canvas} {
+    
+    .#{$frame} {
+      transition: transform .382s ease-in-out;
+      -webkit-transition: -webkit-transform .382s ease-in-out;
+      
+      .#{$viewer} {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        padding: $frame-padding;
+        box-sizing: border-box;
+        overflow-y: scroll;
+        -webkit-overflow-scrolling: touch;
+      }
+      
+      .#{$editor} {
+        position: absolute;
+        transition: transform .382s ease-in-out;
+        -webkit-transition: -webkit-transform .382s ease-in-out;
+        @include transform-translateY( 100% );
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        -webkit-overflow-scrolling: touch;
+      }
+      
+    }
+    
+    
+    .#{$frame}.#{$previous} {
+      @include transform-translateX( -110% );
+    }
+    
+    .#{$frame}.#{$current} {
+      @include transform-translateX( 0 );
+    }
+    
+    .#{$frame}.#{$next} {
+      @include transform-translateX( 110% );
+    }
+    
+    
+  }
+  
+  
+  .#{$panel} {
+    
+    position: absolute;
+    bottom: $panel-margin;
+    left: 50%;
+    margin: 0 0-$panel-width/2;
+    border: 1px solid;
+    padding: 0;
+    width: $panel-width;
+    height: $panel-height;
+    transition: all .382s ease-in-out;
+    opacity: 1;
+    
+    .#{$edit} {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      height: $panel-height;
+      @include flex-display;
+      @include flex-direction( row );
+    }
+    
+    .#{$control} {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      height: $panel-height;
+      @include flex-display;
+      @include flex-direction( row );
+    }
+    
+    .#{$button} {
+        @include flex( 1, 1, auto );
+        border: 1px solid;
+        padding: 0;
+        margin: 0;
+        text-align: center;
+        font-weight: normal;
+        
+        // Hide browser's styling for focused elements:
+        outline: none;
+        
+        // Hide mobile browser's overlay for tapped elements:
+        -webkit-tap-highlight-color: rgba( 0, 0, 0, 0 );
+      }
+    
+  }
+  
+}
+
+
+.#{$slidle}.#{$edit} {
+
+  .#{$canvas} {
+    
+    .#{$frame} {
+      
+      .#{$viewer} {
+        
+      }
+      
+      .#{$editor} {
+        @include transform-translateY( 0 );
+      }
+      
+    }
+  }
+  
+  .#{$panel} {
+    
+    height: 2*$panel-height;
+    
+    .#{$control} {
+      
+    }
+    
+  }
+}
+
+
+.#{$slidle}.#{$hide} {
+  
+  cursor: none;
+  
+  .#{$panel} {
+    opacity: 0;
+  }
+  
+}
+
+
+.#{$slidle}.#{$fullscreen} {
+  
+  width: 100% !important;
+  height: 100% !important;
+  
+  .#{$canvas} {
+  
+    .#{$frame} {
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      
+      .#{$viewer} {
+        padding: 3*$frame-padding;
+      }
+    }
+    
+    .#{$frame}.#{$previous} {
+      @include transform-translateX( -100% );
+    }
+    
+    .#{$frame}.#{$current} {
+      @include transform-translateX( 0 );
+    }
+    
+    .#{$frame}.#{$next} {
+      @include transform-translateX( 100% );
+    }
+    
+  }
+  
+}
+
+
+}

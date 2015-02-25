@@ -118,10 +118,6 @@
     
     .#{$frame} {
       
-      .#{$viewer} {
-        
-      }
-      
       .#{$editor} {
         @include transform-translateY( 0 );
       }
@@ -132,10 +128,6 @@
   .#{$panel} {
     
     height: 2*$panel-height;
-    
-    .#{$control} {
-      
-    }
     
   }
 }

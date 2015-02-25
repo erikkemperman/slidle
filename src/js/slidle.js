@@ -30,10 +30,11 @@
   , CLASS_CONTAINER = NAME
   , CLASS_THEME = 'theme'
   , CLASS_FULLSCREEN = 'fullscreen'
+  , CLASS_EDIT = 'edit'
   , CLASS_CANVAS = 'canvas'
   , CLASS_PANEL = 'panel'
-  , CLASS_CONTROL = 'control'
-  , CLASS_EDIT = 'edit'
+  , CLASS_CONTROLPANEL = 'controlpanel'
+  , CLASS_EDITPANEL = 'editpanel'
   , CLASS_HIDE = 'hide'
   , CLASS_BUTTON = 'button'
   , CLASS_GLYPH = 'glyph'
@@ -216,7 +217,7 @@
         
         // Populate edit panel
         self.editPanel = document.createElement( 'DIV' );
-        self.editPanel.className = CLASS_EDIT;
+        self.editPanel.className = CLASS_EDITPANEL;
         self.panel.appendChild( self.editPanel );
         
         self.editButtons = {};
@@ -249,40 +250,44 @@
         } );
         
         on( self.editButtons.insertSlide, {
-          'mousedown touchstart': function() {
-            addClass( self.editButtons.insertSlide, CLASS_ACTIVE );
-            window.setTimeout( function() {
-              removeClass( self.editButtons.insertSlide, CLASS_ACTIVE );
-            }, 382 );
-            insertFrame( self, self.index + 1, { text: '' } );
-            self.moveTo( self.index + 1 );
-            self.saveShow();
+          'mousedown touchstart': function( event ) {
+            if ( event.type === 'mousedown' && event.which === 1 ) {
+              addClass( self.editButtons.insertSlide, CLASS_ACTIVE );
+              window.setTimeout( function() {
+                removeClass( self.editButtons.insertSlide, CLASS_ACTIVE );
+              }, 382 );
+              insertFrame( self, self.index + 1, { text: '' } );
+              self.moveTo( self.index + 1 );
+              self.saveShow();
+            }
           }
         } );
         
         on( self.editButtons.removeSlide, {
-          'mousedown touchstart': function() {
-            addClass( self.editButtons.removeSlide, CLASS_ACTIVE );
-            window.setTimeout( function() {
-              removeClass( self.editButtons.removeSlide, CLASS_ACTIVE );
-            }, 382 );
-            if ( removeFrame( self, self.index ) ) {
-              // TODO force the animation... Ugh this is not very nice
-              if ( self.index > 0 ) {
-                self.index--;
-                replaceClass( self.frames[ self.index ], CLASS_FRAME_PREVIOUS, CLASS_FRAME_CURRENT );
-              } else if ( self.index <= self.frames.length - 1 ) {
-                replaceClass( self.frames[ self.index ], CLASS_FRAME_NEXT, CLASS_FRAME_CURRENT );
+          'mousedown touchstart': function( event ) {
+            if ( event.type === 'mousedown' && event.which === 1 ) {
+              addClass( self.editButtons.removeSlide, CLASS_ACTIVE );
+              window.setTimeout( function() {
+                removeClass( self.editButtons.removeSlide, CLASS_ACTIVE );
+              }, 382 );
+              if ( removeFrame( self, self.index ) ) {
+                // TODO force the animation... Ugh this is not very nice
+                if ( self.index > 0 ) {
+                  self.index--;
+                  replaceClass( self.frames[ self.index ], CLASS_FRAME_PREVIOUS, CLASS_FRAME_CURRENT );
+                } else if ( self.index <= self.frames.length - 1 ) {
+                  replaceClass( self.frames[ self.index ], CLASS_FRAME_NEXT, CLASS_FRAME_CURRENT );
+                }
+                self.moveTo( self.index );
+                self.saveShow();
               }
-              self.moveTo( self.index );
-              self.saveShow();
             }
           }
         } );
         
         // Populate control panel
         self.controlPanel = document.createElement( 'DIV' );
-        self.controlPanel.className = CLASS_CONTROL;
+        self.controlPanel.className = CLASS_CONTROLPANEL;
         self.panel.appendChild( self.controlPanel );
         
         self.controlButtons = {};
@@ -312,8 +317,10 @@
           
           buttonMap( button );
           on( button, {
-            'mousedown': function() {
-              prototype[ key ].call( self );
+            'mousedown': function( event ) {
+              if ( event.which === 1 ) {
+                prototype[ key ].call( self );
+              }
             }
             , 'touchstart': function() {
               if ( self.showingControl ) {
@@ -794,18 +801,26 @@
   
   function buttonMap( button ) {
     on( button, {
-      'mouseenter': function() {
-        addClass( button, CLASS_HOVER );
+      'mouseenter': function( event ) {
+        if ( event.which === 1 ) {
+          addClass( button, CLASS_HOVER );
+        }
       }
-      , 'mouseleave': function() {
-        removeClass( button, CLASS_ACTIVE );
-        removeClass( button, CLASS_HOVER );
+      , 'mouseleave': function( event ) {
+        if ( event.which === 1 ) {
+          removeClass( button, CLASS_ACTIVE );
+          removeClass( button, CLASS_HOVER );
+        }
       }
-      , 'mousedown': function() {
-        addClass( button, CLASS_ACTIVE );
+      , 'mousedown': function( event ) {
+        if ( event.which === 1 ) {
+          addClass( button, CLASS_ACTIVE );
+        }
       }
-      , 'mouseup': function() {
-        removeClass( button, CLASS_ACTIVE );
+      , 'mouseup': function( event ) {
+        if ( event.which === 1 ) {
+          removeClass( button, CLASS_ACTIVE );
+        }
       }
       , 'touchstart': function( event ) {
         event.preventDefault();

@@ -71,58 +71,93 @@ $canvas-vignet-a2: .6;
     border-radius: $panel-border-radius;
     background-color: #ccc;
     
-    .#{$button} {
-      border-color: #eee #999 #888 #ddd;
-      background-color: #ddd;
-      background-image: linear-gradient( to bottom right, #eee, #ccc );
-      color: #111;
-      text-shadow: #fff 1px 1px 1px;
-    }
-    
-    .#{$button}:first-child {
-      border-top-left-radius: $panel-border-radius;
-      border-bottom-left-radius: $panel-border-radius;
-    }
-    
-    .#{$button}:last-child {
-      border-top-right-radius: $panel-border-radius;
-      border-bottom-right-radius: $panel-border-radius;
-    }
-
-    .#{$button}.#{$hover} {
-      background-color: #eee;
-      background-image: linear-gradient( to bottom right, #fff, #ddd );
-      color: #000;
-    }
-    
-    .#{$button}.#{$active} {
-      background-color: #e8e8e8;
-      background-image: linear-gradient( to bottom right, #eee, #fff );
-      color: #222;
-    }
-    
-    .#{$button}:disabled {
-      background-color: #ccc;
-      background-image: linear-gradient( to bottom right, #ddd, #bbb );
-      color: #666;
+    .#{$editpanel}, .#{$controlpanel} {
+      
+      .#{$button} {
+        border-color: #eee #999 #888 #ddd;
+        background-color: #ddd;
+        background-image: linear-gradient( to bottom right, #eee, #ccc );
+        color: #111;
+        text-shadow: #fff 1px 1px 1px;
+      }
+      
+      .#{$button}:first-child {
+        border-top-left-radius: $panel-border-radius;
+        border-bottom-left-radius: $panel-border-radius;
+      }
+      
+      .#{$button}:last-child {
+        border-top-right-radius: $panel-border-radius;
+        border-bottom-right-radius: $panel-border-radius;
+      }
+  
+      .#{$button}.#{$hover} {
+        background-color: #eee;
+        background-image: linear-gradient( to bottom right, #fff, #ddd );
+        color: #000;
+      }
+      
+      .#{$button}.#{$active} {
+        background-color: #e8e8e8;
+        background-image: linear-gradient( to bottom right, #eee, #fff );
+        color: #222;
+      }
+      
+      .#{$button}:disabled {
+        background-color: #ccc;
+        background-image: linear-gradient( to bottom right, #ddd, #bbb );
+        color: #666;
+      }
+      
     }
     
   }
   
 }
 
-.#{$slidle}.#{$edit} {
+.#{$slidle}.#{$theme}-#{$name}.#{$edit} {
+   
   .#{$canvas} {
+    
     .#{$frame}:before {
       opacity: 0;
     }
+    
     .#{$frame}:after {
       opacity: 0;
+    }
+    
+  }
+  
+  .#{$panel} {
+      
+    .#{$editpanel} {
+      
+      .#{$button}:first-child {
+        border-bottom-left-radius: 0;
+      }
+      
+      .#{$button}:last-child {
+        border-bottom-right-radius: 0;
+      }
+      
+    }
+    
+    .#{$controlpanel} {
+      
+      .#{$button}:first-child {
+        border-top-left-radius: 0;
+      }
+      
+      .#{$button}:last-child {
+        border-top-right-radius: 0;
+      }
+      
     }
   }
 }
 
-.#{$slidle}.#{$fullscreen} {
+.#{$slidle}.#{$theme}-#{$name}.#{$fullscreen} {
 
   .#{$canvas} {
     

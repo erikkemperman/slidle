@@ -240,7 +240,10 @@
         [ 'Left', 'Center', 'Right', 'Justify' ].forEach( function( key ) {
           var low = key.toLowerCase();
           on( self.editButtons[ 'align' + key ], {
-            'mousedown touchstart': function() {
+            'mousedown touchstart': function( event ) {
+              if ( event.type === 'mousedown' && event.which !== 1 ) {
+                return;
+              }
               removeClass( self.frames[ self.index ], self.show.slides[ self.index ].align );
               self.show.slides[ self.index ].align = low;
               addClass( self.frames[ self.index ], low );

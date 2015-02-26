@@ -1,6 +1,4 @@
 /**
- * !! IMPORTANT This depends on utils.js !!
- * 
  * Determine the appropriate prefix for the browser running this script, one of
  * "webkit", "moz", "ms" or, failing those, the empty string "".
  * 

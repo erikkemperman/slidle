@@ -72,7 +72,7 @@
     transition: all .382s ease-in-out;
     opacity: 1;
     
-    .#{$edit} {
+    .#{$editpanel} {
       position: absolute;
       top: 0;
       right: 0;
@@ -82,7 +82,7 @@
       @include flex-direction( row );
     }
     
-    .#{$control} {
+    .#{$controlpanel} {
       position: absolute;
       right: 0;
       bottom: 0;

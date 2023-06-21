@@ -12,7 +12,11 @@
     
   }
   
-  .#{$control} {
+  .#{$controlpanel} {
+    display: none;
+  }
+  
+  .#{$editpanel} {
     display: none;
   }
   

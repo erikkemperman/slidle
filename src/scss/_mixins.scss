@@ -1,0 +1,27 @@
+// Use mixins for prefix headaches... TODO use grunt autoprefixer instead?
+
+@mixin flex-display {
+  display: -webkit-flex;
+  display: flex;
+}
+
+@mixin flex-direction( $direction ) {
+  -webkit-flex-direction: $direction;
+  flex-direction: $direction;
+}
+
+@mixin flex( $grow, $shrink, $basis ) {
+  -webkit-flex: $grow $shrink $basis;
+  flex: $grow $shrink $basis;
+}
+
+@mixin transform-translateX( $offset ) {
+  -webkit-transform: translateX($offset);
+  transform: translateX($offset);
+}
+
+@mixin transform-translateY( $offset ) {
+  -webkit-transform: translateY($offset);
+  transform: translateY($offset);
+}
+

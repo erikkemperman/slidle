@@ -1,5 +1,5 @@
 /**
- * !! IMPORTANT This depends on utils.js and prefix.js and fullscreen.js !!
+ * !! IMPORTANT This depends on prefix.js and fullscreen.js !!
  * 
  * 
  */

@@ -28,19 +28,27 @@
     }
     
     .#{$frame}.#{$left} {
-      text-align: left;
+      .#{$viewer} {
+        text-align: left;
+      }
     }
     
     .#{$frame}.#{$center} {
-      text-align: center;
+      .#{$viewer} {
+        text-align: center;
+      }
     }
     
     .#{$frame}.#{$right} {
-      text-align: right;
+      .#{$viewer} {
+        text-align: right;
+      }
     }
     
     .#{$frame}.#{$justify} {
-      text-align: justify;
+      .#{$viewer} {
+        text-align: justify;
+      }
     }
   }
   

@@ -735,9 +735,8 @@
     }
     self.show.slides.splice( index, 1 );
     self.canvas.removeChild( self.canvas.children[ index ] );
-    console.log( self.frames.length );
     self.frames.splice( index, 1 );
-    console.log( self.frames.length );
+    self.views.splice( index, 1 );
     if ( ! self.options.noedit ) {
       self.editors.splice( index, 1 );
     }

@@ -1,5 +1,5 @@
 /**
- * !! IMPORTANT This depends on utils.js and prefix.js !!
+ * !! IMPORTANT This depends on prefix.js !!
  * 
  * The Fullscreen API is gaining support by the major browsers, but we still
  * have to use prefixes... This shim makes its main features available under
